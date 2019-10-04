@@ -1,8 +1,10 @@
 name: fb_firestore
-description: A new flutter plugin project.
+description: A Flutter project to use Firebase Cloud Firestore on Mobile, Web and Desktop
 version: 0.0.1
 author: Rody Davis <rody.davis.jr@gmail.com>
 homepage: https://github.com/AppleEducate/fb_firestore
+issue_tracker: https://github.com/AppleEducate/plugins/issues
+maintainer: Rody Davis (@AppleEducate)
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
