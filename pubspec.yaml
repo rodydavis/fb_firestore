@@ -1,0 +1,20 @@
+name: fb_firestore
+description: A new flutter plugin project.
+version: 0.0.1
+author: Rody Davis <rody.davis.jr@gmail.com>
+homepage: https://github.com/AppleEducate/fb_firestore
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cloud_firestore: ^0.12.9+4
+  firebase: ^5.0.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
