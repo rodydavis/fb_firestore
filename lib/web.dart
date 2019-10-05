@@ -21,11 +21,15 @@ class FbFirestore {
   }
 
   static Future editDoc(String path, Map<String, dynamic> data,
-      {String id}) async {
+      {String id, bool update = false}) async {
     if (id == null) {
       await _firestore.collection(path).add(data);
     } else {
-      await _firestore.collection(path).doc(id).set(data);
+      if (update) {
+        await _firestore.collection(path).doc(id).update(data: data);
+      } else {
+        await _firestore.collection(path).doc(id).set(data);
+      }
     }
   }
 

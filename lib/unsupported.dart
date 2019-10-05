@@ -7,7 +7,8 @@ class FbFirestore {
     throw 'Platform Not Supported';
   }
 
-  static Future editDoc(String path, Map<String, dynamic> data, {String id}) {
+  static Future editDoc(String path, Map<String, dynamic> data,
+      {String id, bool update = false}) {
     throw 'Platform Not Supported';
   }
 
