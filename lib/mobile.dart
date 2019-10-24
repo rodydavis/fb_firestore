@@ -19,16 +19,16 @@ class FbFirestore {
   }
 
   static Future editDoc(String path, Map<String, dynamic> data,
-      {String id, bool update = false}) async {
-    if (id == null) {
-      await _firestore.collection(path).add(data);
+      {bool update = false}) async {
+    if (update) {
+      await _firestore.document('$path').updateData(data);
     } else {
-      if (update) {
-        await _firestore.collection(path).document(id).updateData(data);
-      } else {
-        await _firestore.collection(path).document(id).setData(data);
-      }
+      await _firestore.document('$path').setData(data);
     }
+  }
+
+  static Future addDoc(String path, Map<String, dynamic> data) async {
+    await _firestore.collection(path).add(data);
   }
 
   static Future<FbDocumentSnapshot> getDoc(String path) async {

@@ -21,16 +21,16 @@ class FbFirestore {
   }
 
   static Future editDoc(String path, Map<String, dynamic> data,
-      {String id, bool update = false}) async {
-    if (id == null) {
-      await _firestore.collection(path).add(data);
+      {bool update = false}) async {
+    if (update) {
+      await _firestore.doc(path).update(data: data);
     } else {
-      if (update) {
-        await _firestore.collection(path).doc(id).update(data: data);
-      } else {
-        await _firestore.collection(path).doc(id).set(data);
-      }
+      await _firestore.doc(path).set(data);
     }
+  }
+
+  static Future addDoc(String path, Map<String, dynamic> data) async {
+    await _firestore.collection(path).add(data);
   }
 
   static Future deleteDoc(String path) async {

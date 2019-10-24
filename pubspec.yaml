@@ -1,6 +1,6 @@
 name: fb_firestore
-description: A Flutter project to use Firebase Cloud Firestore on Mobile, Web and Desktop
-version: 0.0.1
+description: A Flutter project to use Firebase Cloud Firestore on Mobile and Web
+version: 0.0.1+3
 author: Rody Davis <rody.davis.jr@gmail.com>
 homepage: https://github.com/AppleEducate/fb_firestore
 issue_tracker: https://github.com/AppleEducate/plugins/issues
@@ -12,8 +12,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cloud_firestore: ^0.12.9+4
-  firebase: ^5.0.4
+  cloud_firestore: ^0.12.9+5
+  firebase: ^6.0.0
 
 dev_dependencies:
   flutter_test:
