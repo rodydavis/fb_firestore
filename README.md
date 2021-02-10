@@ -2,6 +2,8 @@
 
 Flutter Web, iOS and Android Cloud Firestore Plugin.
 
+This package is now deprecated and was originally created to add firebase on the desktop and web. You can now use the [FlutterFire](https://github.com/FirebaseExtended/flutterfire) packages to do anything this plugin could.
+
 ## Getting Started
 
 For Auth Use: https://pub.dev/packages/fb_auth
