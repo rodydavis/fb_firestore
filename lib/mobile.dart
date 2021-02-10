@@ -6,14 +6,14 @@ import 'classes/index.dart';
 
 class FbFirestore {
   FbFirestore._();
-  static Firestore _firestore = Firestore.instance;
+  static FirebaseFirestore _firestore = FirebaseFirestore.instance;
   static Future<List<FbDocumentSnapshot>> getDocs(String path) async {
-    final _data = await _firestore.collection(path).getDocuments();
+    final _data = await _firestore.collection(path).get();
     if (_data == null) return null;
-    if (_data?.documents == null || _data.documents.isEmpty) return [];
+    if (_data?.docs == null || _data.docs.isEmpty) return [];
     List<FbDocumentSnapshot> _items = [];
-    _data.documents.forEach((d) {
-      _items.add(FbDocumentSnapshot(d.documentID, data: _getData(d)));
+    _data.docs.forEach((d) {
+      _items.add(FbDocumentSnapshot(d.id, data: _getData(d)));
     });
     return _items;
   }
@@ -21,9 +21,9 @@ class FbFirestore {
   static Future editDoc(String path, Map<String, dynamic> data,
       {bool update = false}) async {
     if (update) {
-      await _firestore.document('$path').updateData(data);
+      await _firestore.doc('$path').update(data);
     } else {
-      await _firestore.document('$path').setData(data);
+      await _firestore.doc('$path').set(data);
     }
   }
 
@@ -32,12 +32,12 @@ class FbFirestore {
   }
 
   static Future<FbDocumentSnapshot> getDoc(String path) async {
-    final _data = await _firestore.document(path).get();
-    return FbDocumentSnapshot(_data.documentID, data: _getData(_data));
+    final _data = await _firestore.doc(path).get();
+    return FbDocumentSnapshot(_data.id, data: _getData(_data));
   }
 
   static Future deleteDoc(String path) async {
-    await _firestore.document(path).delete();
+    await _firestore.doc(path).delete();
   }
 
   static Map<String, dynamic> _getData(DocumentSnapshot d) {
